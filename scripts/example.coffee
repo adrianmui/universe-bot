@@ -8,7 +8,7 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
-`import faker from "hubot-faker";`
+faker = require 'faker'
 
 module.exports = (r) ->
 
@@ -16,10 +16,10 @@ module.exports = (r) ->
     res.send 'You are not Barney Stinson'
 
   r.hear /random/i, (res) =>
-    res.send faker.random()
+    res.send faker.name.findName() + 'is your father'
 
   r.hear /res[.]send/i, (res) =>
-    res.send JSON.stringify(res, null 2)
+    res.send JSON.stringify res
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
